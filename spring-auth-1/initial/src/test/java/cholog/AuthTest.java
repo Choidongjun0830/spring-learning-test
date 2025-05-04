@@ -32,7 +32,7 @@ class AuthTest {
     void basicLogin() {
         MemberResponse member = RestAssured
                 .given().log().all()
-                .auth().preemptive().basic(EMAIL, PASSWORD)
+                .auth().preemptive().basic(EMAIL, PASSWORD) //Basic 방식. preepmtive()가 있을 때 없을 때 차이
                 .accept(MediaType.APPLICATION_JSON_VALUE)
                 .when().get("/members/me/basic")
                 .then().log().all()
